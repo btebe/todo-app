@@ -375,7 +375,7 @@ or *:not(:first-child)
   column-gap: .2rem;
 
 }
-.task-label >span{
+.task-label >span:last-child{
   display: inline;
   font-size: var(--fs-text);
   font-family: var(--ff-josefin);
