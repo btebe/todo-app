@@ -20,6 +20,7 @@ function TaskItem({
   count,
   setCount,
   index,
+  setLoading,
 }) {
   const router = useRouter();
   const closeRef = useRef();
@@ -70,7 +71,6 @@ function TaskItem({
     setdragList(draglist.filter((item) => item.id !== id));
     setsubList(sublist.filter((item) => item.id !== id));
     if (togglecheck == false) setCount(count - 1);
-
     await fetcherDelete(`/api/taskGeneral/${id}`).then((response) => {
       if (response.data.error) {
         console.log(response.data.error);

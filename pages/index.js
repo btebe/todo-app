@@ -15,6 +15,7 @@ import {
   fetcherUpdateList,
 } from "../utils/fetcher";
 import { prisma } from "../lib/prisma";
+import Loader from "../components/Loader";
 
 export default function Home({ dragdata, originaldata, activecount, filter }) {
   const router = useRouter();
@@ -117,13 +118,13 @@ export default function Home({ dragdata, originaldata, activecount, filter }) {
       } else {
         refreshData();
         setsubList(response.data);
-        // if (router.query.filter == "all") {
-        //   handleAllTasks();
-        // } else if (router.query.filter == "active") {
-        //   handleActiveTasks();
-        // } else if (router.query.filter == "complete") {
-        //   handleCompleteTasks();
-        // }
+        if (router.query.filter == "all") {
+          handleAllTasks();
+        } else if (router.query.filter == "active") {
+          handleActiveTasks();
+        } else if (router.query.filter == "complete") {
+          handleCompleteTasks();
+        }
       }
     });
   };
@@ -199,13 +200,13 @@ export default function Home({ dragdata, originaldata, activecount, filter }) {
   */
   const handleAllTasks = async () => {
     router.push("/?filter=all", undefined, { shallow: true });
-    //setLoading(true);
+    setLoading(true);
     await fetcher("/api/taskFilter/allTask").then((response) => {
       if (response.data.error) {
         console.log(response.data.error);
       } else {
         setdragList(response.data);
-        //setLoading(false);
+        setLoading(false);
       }
     });
   };
@@ -215,13 +216,13 @@ export default function Home({ dragdata, originaldata, activecount, filter }) {
   */
   const handleActiveTasks = async () => {
     router.push("/?filter=active", undefined, { shallow: true });
-    //setLoading(true);
+    setLoading(true);
     await fetcher("/api/taskFilter/orderByActive").then((response) => {
       if (response.data.error) {
         console.log(response.data.error);
       } else {
         setdragList(response.data);
-        //setLoading(false);
+        setLoading(false);
       }
     });
   };
@@ -231,13 +232,13 @@ export default function Home({ dragdata, originaldata, activecount, filter }) {
   */
   const handleCompleteTasks = async () => {
     router.push("/?filter=complete", undefined, { shallow: true });
-    //setLoading(true);
+    setLoading(true);
     await fetcher("/api/taskFilter/orderByComplete").then((response) => {
       if (response.data.error) {
         console.log(response.data.error);
       } else {
         setdragList(response.data);
-        //setLoading(false);
+        setLoading(false);
       }
     });
   };
@@ -248,11 +249,13 @@ export default function Home({ dragdata, originaldata, activecount, filter }) {
   const handleClearCompleted = async () => {
     setdragList(draglist.filter((item) => item.check !== true));
     setsubList(sublist.filter((item) => item.check !== true));
+    setLoading(true);
     await fetcherDelete("/api/taskFilter/clearCompleted").then((response) => {
       if (response.data.error) {
         console.log(response.data.error);
       } else {
         refreshData();
+        setLoading(false);
       }
     });
   };
@@ -323,7 +326,7 @@ export default function Home({ dragdata, originaldata, activecount, filter }) {
                 <Droppable droppableId='list-container'>
                   {(provided) => (
                     <div {...provided.droppableProps} ref={provided.innerRef}>
-                      {loading && <EmptyTaskItem loading={loading} />}
+                      {loading && <Loader loading={loading} />}
                       {!loading && draglist.length < 1 && <EmptyTaskItem />}
                       {!loading &&
                         draglist.length > 0 &&
@@ -358,6 +361,7 @@ export default function Home({ dragdata, originaldata, activecount, filter }) {
                                   count={count}
                                   setCount={setCount}
                                   index={index}
+                                  setLoading={setLoading}
                                 />
                               </div>
                             )}
