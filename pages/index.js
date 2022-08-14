@@ -59,9 +59,11 @@ export default function Home({ dragdata, originaldata, activecount, filter }) {
   useEffect(() => {
     const data = window.localStorage.getItem("darkMode");
     if (data != null) setToggleThemeMode(JSON.parse(data));
+    // eslint-disable-line react-hooks/exhaustive-deps
   }, []);
   useEffect(() => {
     window.localStorage.setItem("darkMode", JSON.stringify(toggleThemeMode));
+    // eslint-disable-line react-hooks/exhaustive-deps
   }, [toggleThemeMode]);
 
   useEffect(() => {
