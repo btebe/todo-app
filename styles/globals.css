@@ -329,7 +329,7 @@ or *:not(:first-child)
   background: linear-gradient(45deg, hsla(192, 100%, 67%, 1) 0%, hsla(280, 87%, 65%, 1) 100%);
 }
 [type="checkbox"]:checked  + label .custom-checkbox-border .custom-checkbox{
-  background-image: url('static/images/icon-check.svg');
+  background-image: url('/static/images/icon-check.svg');
   background-repeat: no-repeat;
   background-position: center center;
   
