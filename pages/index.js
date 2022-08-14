@@ -68,6 +68,7 @@ export default function Home({ dragdata, originaldata, activecount, filter }) {
     setIsBrowser(window !== "undefined");
     setIsRefreshing(false);
     if (filter) router.push("/?filter=all", undefined, { shallow: true });
+    // eslint-disable-line react-hooks/exhaustive-deps
   }, []);
 
   /*

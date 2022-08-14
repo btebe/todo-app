@@ -2,7 +2,6 @@ import React, { useState, useRef } from "react";
 import deletebtn from "../images/icon-cross.svg";
 import Image from "next/image";
 import { useMediaQuery } from "react-responsive";
-import axios from "axios";
 import { useRouter } from "next/router";
 import { fetcherDelete, fetcherUpdate } from "../utils/fetcher";
 
