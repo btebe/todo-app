@@ -49,8 +49,8 @@
   --form-bg: white;
   --onDrag-bg: white;
   --onDrage-border: hsl(var(--l-dark-grayish-blue)/.5);
-  --bg-image-desktop: url('/public/static/images/bg-desktop-light.jpg');
-  --bg-image-mobile:url('/public/static/images/bg-mobile-light.jpg');
+  --bg-image-desktop: url('../public/bg-desktop-light.jpg');
+  --bg-image-mobile:url('../public/bg-mobile-light.jpg');
   --boxshadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   --text-weight: 400;
 
@@ -101,8 +101,8 @@
   --filter-text: hsl(var(--d-dark-grayish-blue));
   --onDrag-bg: hsl(var(--d-very-dark-desaturated-blue));
   --onDrage-border: hsl(var(--d-dark-grayish-blue));
-  --bg-image-desktop: url('/public/static/images/bg-desktop-dark.jpg');
-  --bg-image-mobile:url('/public/static/images/bg-mobile-dark.jpg');
+  --bg-image-desktop: url('../public/bg-desktop-dark.jpg');
+  --bg-image-mobile:url('../public/bg-mobile-dark.jpg');
   --boxshadow:0px 27px 40px 0px rgba(0, 0, 0, 0.25);
   --text-weight: 400;
 
@@ -329,7 +329,7 @@ or *:not(:first-child)
   background: linear-gradient(45deg, hsla(192, 100%, 67%, 1) 0%, hsla(280, 87%, 65%, 1) 100%);
 }
 [type="checkbox"]:checked  + label .custom-checkbox-border .custom-checkbox{
-  background-image: url('/public/static/images/icon-check.svg');
+  background-image: url('../public/static/images/icon-check.svg');
   background-repeat: no-repeat;
   background-position: center center;
   
