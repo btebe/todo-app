@@ -1,8 +1,8 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
-import moonIcon from "../public/images/icon-moon.svg";
-import sunIcon from "../public/images/icon-sun.svg";
+import moonIcon from "../public/static/images/icon-moon.svg";
+import sunIcon from "../public/static/images/icon-sun.svg";
 import TaskItem from "../components/TaskItem";
 import EmptyTaskItem from "../components/EmptyTaskItem";
 import { useState, useEffect } from "react";

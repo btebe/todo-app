@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import deletebtn from "../public/images/icon-cross.svg";
+import deletebtn from "../public/static/images/icon-cross.svg";
 import Image from "next/image";
 import { useMediaQuery } from "react-responsive";
 import { useRouter } from "next/router";
