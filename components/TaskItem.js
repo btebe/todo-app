@@ -105,7 +105,7 @@ function TaskItem({
         <span className='custom-checkbox-border'>
           <span className='custom-checkbox'></span>
         </span>
-        <p className={togglecheck ? "checked " : ""}>{text}</p>
+        <span className={togglecheck ? "checked " : ""}>{text}</span>
       </label>
       <div className='image-Wrapper' onClick={handleDelete}>
         <Image src={deletebtn} alt='delete-icon' />
