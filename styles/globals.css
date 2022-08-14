@@ -1,26 +1,466 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;700&display=swap');
+
+:root {
+  /* colors*/
+
+  /* primary */
+
+  --bright-blue: 220 98% 61%;
+  /* linear-gradient */
+  --check-bg-1: 192 100% 67%;
+  --check-bg-2: 280 87% 65%;
+
+  /* light theme */
+
+  /* 0, 0%, 98% */
+  --l-very-light-gray: 0 0% 98%;
+  /* for text */
+  --l-very-light-grayish-blue: 236 33% 92%;
+  /* mabye check */
+  --l-light-grayish-blue: 233 11% 84%;/* for text as well*/
+  --l-dark-grayish-blue: 236 9% 61%;
+  --l-very-dark-grayish-blue: 235 19% 35%;
+
+
+  /* dark theme */
+  
+  --d-very-dark-blue: 235 21% 11%;
+  --d-very-dark-desaturated-blue: 235 24% 19%;
+  --d-light-grayish-blue: 234, 39%, 85%;/* task text */
+  --d-light-grayish-blue-hover: 236 33% 92%;
+  --d-dark-grayish-blue: 234 11% 52%;
+  --d-very-dark-grayish-blue-1: 233 14% 35%;
+  --d-very-dark-grayish-blue-2: 237 14% 26%;
+
+  /* vars */
+  --background: hsl(var(--l-very-light-gray));
+  --active-filter-color: hsl(var(--bright-blue));
+  --task-text-color: hsl(var(--l-very-dark-grayish-blue));
+  --checked-task-text: hsl(var(--l-light-grayish-blue)) ;
+  --checkbox-border:  hsl(var(--l-light-grayish-blue)/.4);
+  --checbox-bg: white;
+  --footer-text: hsl(var(--l-dark-grayish-blue));
+  --task-container-bg: white;
+  --input-text:hsl(var(--l-very-dark-grayish-blue));
+  --input-placeholder:hsl(var( --l-dark-grayish-blue));
+  --filter-text-hover: hsl(var(--l-very-dark-grayish-blue));
+  --filter-text:hsl(var(--l-dark-grayish-blue));
+  --task-bottom-border: hsl(var(--l-very-dark-grayish-blue)/0.2);
+  --form-bg: white;
+  --onDrag-bg: white;
+  --onDrage-border: hsl(var(--l-dark-grayish-blue)/.5);
+  --bg-image-desktop: url('../images/bg-desktop-light.jpg');
+  --bg-image-mobile:url('../images/bg-mobile-light.jpg');
+  --boxshadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  --text-weight: 400;
+
+ 
+  
+ /* typography */
+
+  /*font-sizes*/
+
+  --fs-body: 18px;
+  --fs-text:1.125rem; 
+  --fs-footer:1rem;
+  --fs-header:2.5rem;
+ 
+  
+
+ 
+  /* font weight */
+  --fw-700:700;
+  --fw-400:400;
+  --fw-300:300;
+  --fw-200:200;
+  --fw-100:100;
+
+  /* font-families */
+
+  --ff-josefin: 'Josefin Sans', sans-serif;
+
+
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+
+
+.darkMode{
+  --background: hsl(var(--d-very-dark-blue));
+  --active-filter-color: hsl(var(--bright-blue));
+  --input-text:hsl(var(--d-light-grayish-blue));
+  --input-placeholder:hsl(var(--d-dark-grayish-blue));
+  --task-text-color: hsl(var(--d-light-grayish-blue));
+  --checked-task-text: hsl(var(--d-very-dark-grayish-blue-1)) ;
+  --task-bottom-border: hsl(var(--d-dark-grayish-blue)/.3);
+  --checkbox-border: hsl(var(--d-very-dark-grayish-blue-2)/.5);
+  --checbox-bg: hsl(var(--d-very-dark-desaturated-blue));
+  --footer-text: hsl(var(--d-very-dark-grayish-blue-1));
+  --task-container-bg: hsl(var(--d-very-dark-desaturated-blue));
+  --form-bg: hsl(var(--d-very-dark-desaturated-blue));
+  --filter-text-hover: hsl(var(--d-light-grayish-blue-hover));
+  --filter-text: hsl(var(--d-dark-grayish-blue));
+  --onDrag-bg: hsl(var(--d-very-dark-desaturated-blue));
+  --onDrage-border: hsl(var(--d-dark-grayish-blue));
+  --bg-image-desktop: url('../images/bg-desktop-dark.jpg');
+  --bg-image-mobile:url('../images/bg-mobile-dark.jpg');
+  --boxshadow:0px 27px 40px 0px rgba(0, 0, 0, 0.25);
+  --text-weight: 400;
+
 }
 
-* {
+@media (max-width:600px){
+  :root{
+    --fs-text:1rem; 
+    --fs-footer:1rem;
+    --fs-header:1.7rem;
+  }
+ 
+}
+
+
+/* ------------- */
+/* Reset         */
+/* ------------- */
+
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+/* Reset Margins    */
+
+body,
+h1,
+h2,
+h3,
+p,
+picture {
+  margin: 0;
+
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
+  font-weight: var(--fw-400);
+}
+
+/* Remove list styles on ul, ol elements with a list role,
+ which suggests default styling will be removed */
+
+ ul,
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Set core root defaults */ 
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color:inherit;
+}
+
+
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-family: var(--ff-josefin);
+  font-size: var(--fs-body);
+  /* to strech out elements */
+  background-color: var(--background);
+  display: grid;
+  overflow-x: hidden;
+}
+
+/* Make images easier to work with */
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
   }
-  body {
-    color: white;
-    background: black;
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
+
+/* ------------- */
+/* Utility Classes  */
+/* ------------- */
+
+/* general */
+
+/*flex*/
+
+.flex {
+  display: flex;
+  gap: var(--gap, 1rem);
+}
+
+/*grid*/
+
+.grid {
+  display: grid;
+  gap: var(--gap, 1rem);
+}
+.d-block {
+  display: block;
+}
+.d-none{
+  display: none;
+}
+
+.d-inline{
+  opacity: 1;
+}
+
+/* 
+or * + * 
+or *:not(:first-child)
+*/
+.flow > *:where(:not(:first-child)) {
+  border-radius: 0 !important;
+}
+
+.flow--space-small {
+  --flow-space: 0.5rem;
+}
+
+.main-body{
+  height: 100%;
+  display: grid;
+  grid-template-rows: min-content max-content;
+  position: relative;
+}
+
+
+
+/* for visually imapaired */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+
+
+
+/* custom check box */
+
+
+[type="checkbox"]{
+  opacity: 0;
+  position: absolute;
+  
+}
+.custom-checkbox{
+  --size: 84%;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  display: inline-block;
+  pointer-events: auto;
+  background: var(--checbox-bg);
+}
+.custom-checkbox-border{
+
+  pointer-events: none;
+  align-self: start;
+  --size: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  background: var(--checkbox-border);
+}
+
+.custom-checkbox-border:hover {
+  background: linear-gradient(45deg, hsla(192, 100%, 67%, 1) 0%, hsla(280, 87%, 65%, 1) 100%);
+  cursor: pointer;
+}
+
+[type="checkbox"]:checked  + label .custom-checkbox-border, [type="checkbox"]:checked  + label .custom-checkbox-border .custom-checkbox{
+  background: linear-gradient(45deg, hsla(192, 100%, 67%, 1) 0%, hsla(280, 87%, 65%, 1) 100%);
+}
+[type="checkbox"]:checked  + label .custom-checkbox-border .custom-checkbox{
+  background-image: url('../images/icon-check.svg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  
+}
+
+.checked{
+  color: var(--checked-task-text) !important;
+  text-decoration: line-through;
+}
+
+/* task */
+
+
+.task-list{
+  background-color: var(--task-container-bg);
+  border-radius: 5px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.task-list > div > div > .task {
+  border-bottom: 1px solid var(--task-bottom-border);
+} 
+
+.task{
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 1fr .09fr;
+  column-gap: .5rem;
+  align-items: center;
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.task-label{
+  width: 100%;
+  position: relative;
+  display: grid;
+  align-items: center;
+  grid-template-columns: .1fr 1fr;
+  column-gap: .2rem;
+
+}
+.task-label >p{
+  display: inline;
+  font-size: var(--fs-text);
+  font-family: var(--ff-josefin);
+  font-weight: var(--text-weight);
+  color: var(--task-text-color);
+}
+
+.task-label:hover, .task:hover{
+  cursor: pointer;
+}
+
+/* image wrapper for task close btn */
+
+.image-Wrapper{
+  margin-top: 0;
+  opacity: 0;
+  display: inline;
+  float: right;
+  margin-top: .2rem ;
+  margin-right: .2rem;
+  align-self: start;
+  justify-self: center;
+}
+
+/* empty task */
+
+.emypty-task{
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--input-placeholder);
+  font-size: var(--fs-text);
+  font-family: var(--ff-josefin);
+}
+
+
+
+/* responsiveness */
+
+
+/* mobile */
+
+@media (max-width:600px){
+
+  /* custom checkbox */
+
+  .custom-checkbox-border{
+    --size: 25px;
+
+  }
+  .custom-checkbox{
+    --size: 84%;
+  }
+
+  /* task */
+
+  .task-label{
+    padding-left: 0;
+    column-gap: 0.5rem;
+  }
+  .task-label > P{
+    padding-left: 5px;
+    font-weight:normal;
+  }
+  .task-list{
+    border-radius: 5px;
+    box-shadow: var(--boxshadow);
+  }
+
+  .task-list > div > div:last-child > .task{
+    border-bottom: 0;
+  
+  }
+  
+}
+
+/* mobile & tablet */
+
+@media (max-width: 1000px){
+
+  /* close btn */
+  .image-Wrapper{
+    opacity: 1;
+ 
+  }
+}
+
