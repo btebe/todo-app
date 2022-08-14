@@ -45,8 +45,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [github](https://github.com/btebe/todo-app)
+- Live Site URL: [vercel](https://todo-app-ten-weld.vercel.app/?filter=all)
 
 ## My process
 
@@ -58,7 +58,7 @@ Users should be able to:
 - CSS Grid
 - [Next.js](https://nextjs.org/) - React framework
 - prisma
-- sqlite
+- mysql
 - react-beautiful-dnd
 
 ### What I learned
